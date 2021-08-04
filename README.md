@@ -1,4 +1,4 @@
-### Hi there 👋
+### Чтобы зайти на сайт перейдите по ссылке http://a95390w6.beget.tech/ администратор - login = admin password = password, пользователь user пароль password
 
 <!--
 **DoorDatchik/DoorDatchik** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
