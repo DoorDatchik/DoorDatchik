@@ -2,6 +2,27 @@
 
 @section('content')
 <div class="container">
+    <form action="{{ route('home') }}">
+        <div class="row justify-content-start mb-3">
+            <div class="col-2">
+                <input type="text" name="group" class="form-control" value="{{ $params['group'] ?? '' }}" placeholder="Введите группу">
+            </div>
+            <div class="col-2">
+                <input type="text" name="full_name_teacher" class="form-control" value="{{ $params['full_name_teacher'] ?? '' }}" placeholder="Введите ФИО">
+            </div>
+            <label for="date_start">От</label>
+            <div class="col-2">
+                <input type="datetime-local" name="date_start" value="{{ $params['date_start'] ?? '' }}" class="form-control">
+            </div>
+            <label for="date_start">До</label>
+            <div class="col-2">
+                <input type="datetime-local" name="date_end" value="{{ $params['date_end'] ?? '' }}" class="form-control">
+            </div>
+            <div class="col-2">
+                <button class="w-100 btn btn-primary" type="submit">Поиск</button>
+            </div>
+        </div>
+    </form>
     <table class="table">
         <thead>
         <tr>
@@ -22,6 +43,11 @@
                 <td>{{ $lesson->start_time }}</td>
                 <td>{{ $lesson->finish_time }}</td>
                 <td><a href="{{ $lesson->link }}">тут ссылка</a></td>
+                @if(Auth::check() && Auth::user()->isAdmin())
+                    <td>
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    </td>
+                @endif
             </tr>
         @endforeach
         </tbody>

@@ -51,4 +51,9 @@ class User extends Authenticatable
         return $this->belongsTo(Group::class);
     }
 
+    public function isAdmin()
+    {
+        return $this->group()->where('name','0')->first();
+    }
+
 }
