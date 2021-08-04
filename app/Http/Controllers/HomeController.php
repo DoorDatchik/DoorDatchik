@@ -30,7 +30,8 @@ class HomeController extends Controller
             'group' => 'sometimes',
             'date_start' => 'sometimes',
             'date_end' => 'sometimes',
-            'full_name_teacher' => 'sometimes'
+            'full_name_teacher' => 'sometimes',
+            'lesson' => 'sometimes'
         ]);
 
         $lessons = DB::select("SELECT l.name,
@@ -66,6 +67,16 @@ class HomeController extends Controller
             concat(`t`.`name` , ' ' , `t`.`surname` ,' ', `t`.`last_name`) as full_name, `l`.`start_time`, `l`.`finish_time`,  `l`.`link`
             FROM study.lessons as l inner join study.teachers as t on `t`.`id` = `l`.`teacher_id`
             where concat(`t`.`name` , ' ' , `t`.`surname` ,' ', `t`.`last_name`) = '$full_name'");
+        }
+
+        if (isset($params['lesson']) && !empty($params['lesson'])) {
+
+            $lesson = $params['lesson'];
+            $lessons = DB::select("SELECT `l`.name,
+            (select group_concat(`g`.name ) from study.group_lessons as gl inner join study.groups as g on g.id = gl.group_id where gl.lesson_id = l.id ) as groupp,
+            concat(`t`.`name` , ' ' , `t`.`surname` ,' ', `t`.`last_name`) as full_name, `l`.`start_time`, `l`.`finish_time`,  `l`.`link`
+            FROM study.lessons as l inner join study.teachers as t on `t`.`id` = `l`.`teacher_id`
+            where l.`name` = '$lesson'");
         }
 
 
