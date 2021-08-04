@@ -2,22 +2,29 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Название предмета</th>
+            <th>Группа</th>
+            <th scope="col">ФИО преподавателя</th>
+            <th scope="col">Начало занятия</th>
+            <th scope="col">Конец занятия</th>
+            <th scope="col">Ссылка</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($lessons as $lesson)
+            <tr>
+                <td>{{ $lesson->name }}</td>
+                <td>{{ $lesson->groupp }}</td>
+                <td>{{ $lesson->full_name }}</td>
+                <td>{{ $lesson->start_time }}</td>
+                <td>{{ $lesson->finish_time }}</td>
+                <td><a href="{{ $lesson->link }}">тут ссылка</a></td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
 </div>
 @endsection
