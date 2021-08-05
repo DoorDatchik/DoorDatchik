@@ -12,7 +12,7 @@ class UpdateTeacherController extends Controller
     public function index($id)
     {
         $teacher = Teacher::with(['groups'])->findOrFail($id);
-        $groups = Group::all();
+        $groups = Group::where('name', '!=', '0')->get();
 
         return view('update_teacher', [
             'teacher' => $teacher,
@@ -41,7 +41,7 @@ class UpdateTeacherController extends Controller
 
         foreach ($groups as $group) {
             if (isset($group)) {
-                $updateGroups [] = $group->id;
+                $updateGroups [] = $group;
             }
         }
 

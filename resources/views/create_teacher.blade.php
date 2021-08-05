@@ -55,7 +55,7 @@
             <div class="col-12 alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <legend>Группы</legend>
+            <legend>Группы(Чтобы создать несколько групп, зажмите клавишу ctrl и выберите необходимые группы)</legend>
             <div class="row">
                 <div class="form-group row">
                     <div class="col-9">

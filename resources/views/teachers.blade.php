@@ -22,6 +22,9 @@
                             <div>{{ $group->name }}</div>
                         @endforeach
                     </td>
+                    <td>
+                        <a href="{{ route('update-teacher', ['id' => $teacher->id]) }}">Редактировать</a>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

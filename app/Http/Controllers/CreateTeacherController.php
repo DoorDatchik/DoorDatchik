@@ -11,7 +11,7 @@ class CreateTeacherController extends Controller
 {
     public function index()
     {
-        $groups = Group::all();
+        $groups = Group::where('name', '!=', '0')->get();
 
         return view('create_teacher', [
             'groups' => $groups

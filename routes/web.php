@@ -29,3 +29,5 @@ Route::get('/teachers/create', [\App\Http\Controllers\CreateTeacherController::c
 Route::post('/teachers/create', [\App\Http\Controllers\CreateTeacherController::class, 'create'])->name('create-teacher-post');
 Route::get('/teachers/{id}/update', [\App\Http\Controllers\UpdateTeacherController::class, 'index'])->name('update-teacher');
 Route::post('/teachers/{id}/update', [\App\Http\Controllers\UpdateTeacherController::class, 'update'])->name('update-teacher-post');
+Route::get('/upload-files', [\App\Http\Controllers\UploadPhotoController::class, 'index'])->name('upload-files');
+Route::post('/upload-files', [\App\Http\Controllers\UploadPhotoController::class, 'upload'])->name('upload-files-post');
