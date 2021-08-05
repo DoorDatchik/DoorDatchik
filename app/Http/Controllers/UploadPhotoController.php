@@ -22,6 +22,6 @@ class UploadPhotoController extends Controller
 
     public function upload(Request $request)
     {
-
+        dd($request);
     }
 }

@@ -35,6 +35,11 @@
                         @guest
 
                         @else
+                            @if(Auth::user()->isAdmin())
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('upload-files') }}">{{ __('Загрузить фото студентов') }}</a>
+                                </li>
+                            @endif
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('teachers') }}">{{ __('Преподаватели') }}</a>
                             </li>
