@@ -1,5 +1,6 @@
 ### Чтобы зайти на сайт перейдите по ссылке http://a95390w6.beget.tech/ администратор - login = admin password = password, пользователь user пароль password
 ### чтобы установить приложение зайдите в папку android в ветке master там будет apk файл, который нужно установить
+### В самом конце лежит word файл с описанной программной подсистемной которая была разработана за эти два дня, подписанный проректором по образовательной деятельности НовГУ
 
 <!--
 **DoorDatchik/DoorDatchik** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
