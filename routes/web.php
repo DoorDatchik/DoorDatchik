@@ -24,3 +24,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/teachers', [\App\Http\Controllers\TeacherController::class, 'index'])->name('teachers');
+Route::get('/teachers/create', [\App\Http\Controllers\CreateTeacherController::class, 'index'])->name('create-teacher');
+Route::post('/teachers/create', [\App\Http\Controllers\CreateTeacherController::class, 'create'])->name('create-teacher-post');
+Route::get('/teachers/{id}/update', [\App\Http\Controllers\UpdateTeacherController::class, 'index'])->name('update-teacher');
+Route::post('/teachers/{id}/update', [\App\Http\Controllers\UpdateTeacherController::class, 'update'])->name('update-teacher-post');
